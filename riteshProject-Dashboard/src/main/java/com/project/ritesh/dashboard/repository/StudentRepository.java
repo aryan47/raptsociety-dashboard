@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.project.ritesh.dashboard.entity.Student;
 import com.project.ritesh.dashboard.entity.Subject;
 import com.project.ritesh.dashboard.jpsRepository.StudentJpaRepository;
 
@@ -35,5 +36,11 @@ public class StudentRepository {
 		List<Subject> subjects = JpaRepository.findByNameContaining(name);		
 		logger.info("============subjects like   {}", subjects);
 		logger.info("============subject like size  {}", subjects.size());
+	}
+	public String addStudent(Student student) {
+		
+			em.persist(student);
+			return student.getName();
+		
 	}
 }
