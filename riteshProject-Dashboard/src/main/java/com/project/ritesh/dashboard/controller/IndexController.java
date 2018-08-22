@@ -9,7 +9,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.ritesh.dashboard.configuration.BasicConfiguration;
 import com.project.ritesh.dashboard.entity.Student;
-import com.project.ritesh.dashboard.entity.UpdateStudent;
 import com.project.ritesh.dashboard.repository.StudentRepository;
 
 @Controller
