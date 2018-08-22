@@ -8,7 +8,7 @@ import com.project.ritesh.dashboard.entity.Student;
 import com.project.ritesh.dashboard.entity.Subject;
 @RepositoryRestResource(path = "students")
 public interface StudentJpaRepository extends JpaRepository<Student, Long> {
-
+	Student findByEmail(String email);
 	List<Subject> findByNameContaining(String name);
 	
 }

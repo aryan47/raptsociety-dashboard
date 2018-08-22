@@ -9,6 +9,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.project.ritesh.dashboard.configuration.BasicConfiguration;
 import com.project.ritesh.dashboard.entity.Student;
+import com.project.ritesh.dashboard.entity.UpdateStudent;
 import com.project.ritesh.dashboard.repository.StudentRepository;
 
 @Controller
@@ -33,6 +34,13 @@ public class IndexController {
 		String name=studentRepo.addStudent(student);
 		red.addFlashAttribute("studentAdded",name);
 		
+		return "redirect:/tables";
+	}
+	@GetMapping("/updateStudent")
+	public String updateStudent( Student update,RedirectAttributes red) {
+		System.out.println(update.getName());
+		String name= studentRepo.updateStudent(update);
+		red.addFlashAttribute("studentUpdated", name);
 		return "redirect:/tables";
 	}
 }

@@ -11,8 +11,6 @@
 <link href="index/css/bootstrap/css/bootstrap-responsive.min.css"
 	rel="stylesheet" media="screen">
 <link href="index/css/assets/styles.css" rel="stylesheet" media="screen">
-<link href="index/css/assets/DT_bootstrap.css" rel="stylesheet"
-	media="screen">
 
 <link rel="stylesheet"
 	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -22,7 +20,8 @@
             <script src="index/css/http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
 </head>
 
@@ -169,19 +168,21 @@
 								</div>
 
 
-								<div id="ritesh" style="margin-top: 20px">
+								<div id="tableContent" style="margin-top: 30px">
 									<ul>
 										<li><a href="#tableContent">List</a></li>
 										<li><a href="#addNew">Add New</a></li>
 									</ul>
 									<div id="tableContent">
-										<table cellpadding="0" cellspacing="0" border="0"
-											class="table table-striped table-bordered" id="example2">
+										<table id="studentTable" cellpadding="0" cellspacing="0"
+											border="0" class="table table-striped table-bordered"
+											id="example2">
 											<thead>
 												<tr>
 													<th>S.No</th>
 													<th>Name</th>
 													<th>Email</th>
+													<th>edit</th>
 												</tr>
 											</thead>
 											<tbody id="studentBody">
@@ -232,24 +233,61 @@
 		</div>
 	</div>
 	<hr>
+	<div class="modal fade" id="editStudent">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close" data-dismiss="modal">&times;</button>
+					<h3>Edit details</h3>
+				</div>
+				<div class="modal-body">
+					<form action="/updateStudent" id="form_sample_1" class="form-horizontal" method="get">
+						<fieldset>
+							<div class="control-group">
+								<label class="control-label">Name<span class="required">*</span></label>
+								<div class="controls">
+									<input type="text" name="name" id="editName" data-required="1"
+										class="input-xlarge focused" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">Email<span
+									class="required">*</span></label>
+								<div class="controls">
+									<input name="email" type="text" id="editEmail"
+										class="input-xlarge focused" />
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" id="updateStudent" class="btn btn-primary">Update</button>
+								<button type="button" class="btn" class="close"
+									data-dismiss="modal">Cancel</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="modal-footer"></div>
+			</div>
+		</div>
+	</div>
 	<footer>
 		<p>&copy; RaptSociety-ritesh 2018</p>
 	</footer>
-	</div>
+
 	<!--/.fluid-container-->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="index/css/bootstrap/js/bootstrap.min.js"></script>
-	<script src="index/css/vendors/datatables/js/jquery.dataTables.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	<script src="index/css/assets/scripts.js"></script>
-	<script src="index/css/assets/DT_bootstrap.js"></script>
+
 	<script src="index/js/main.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="index/css/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-	<script>
-		$('#ritesh').tabs();
-		$(function() {
 
-		});
+	<script>
+		$('#tableContent').tabs();
 	</script>
 </body>
 

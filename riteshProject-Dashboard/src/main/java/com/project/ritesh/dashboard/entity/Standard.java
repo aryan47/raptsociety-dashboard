@@ -23,7 +23,7 @@ public class Standard {
 	private String name;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JsonIgnore
+	
 	@JoinTable(name="Standard_Subject", joinColumns= @JoinColumn(name="standard_id"), inverseJoinColumns=@JoinColumn(name="subject_id"))
 	private List<Subject> subjects = new ArrayList<Subject>();
 

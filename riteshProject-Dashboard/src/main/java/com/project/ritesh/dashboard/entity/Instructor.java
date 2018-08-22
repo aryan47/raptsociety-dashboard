@@ -26,7 +26,7 @@ public class Instructor {
 	private String email;
 	private String password;
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JsonIgnore
+	
 	@JoinTable(name = "Instructor_Subject", joinColumns = @JoinColumn(name = "instructor_id"), inverseJoinColumns = @JoinColumn(name = "subject_id"))
 	private List<Subject> subjects = new ArrayList<Subject>();
 	

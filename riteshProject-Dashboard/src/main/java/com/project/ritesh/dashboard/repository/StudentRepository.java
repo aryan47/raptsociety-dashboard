@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.project.ritesh.dashboard.entity.Student;
 import com.project.ritesh.dashboard.entity.Subject;
+import com.project.ritesh.dashboard.entity.UpdateStudent;
 import com.project.ritesh.dashboard.jpsRepository.StudentJpaRepository;
 
 @Repository
@@ -37,10 +38,16 @@ public class StudentRepository {
 		logger.info("============subjects like   {}", subjects);
 		logger.info("============subject like size  {}", subjects.size());
 	}
-	public String addStudent(Student student) {
-		
+	public String addStudent(Student student) {		
 			em.persist(student);
-			return student.getName();
-		
+			return student.getName();		
 	}
+	public String updateStudent(Student update) {
+		
+		Student student=JpaRepository.findByEmail(update.getEmail());
+		update.setId(student.getId());
+		em.merge(update);
+		return update.getName();
+	}
+
 }

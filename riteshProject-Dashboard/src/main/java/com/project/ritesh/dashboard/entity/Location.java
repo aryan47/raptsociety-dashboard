@@ -18,7 +18,7 @@ public class Location {
 	private String name;
 	private String city;
 	@ManyToMany(mappedBy="locations")
-	@JsonIgnore
+	
 	private List<Instructor> instructors = new ArrayList<Instructor>();
 	public Location() {
 		// TODO Auto-generated constructor stub

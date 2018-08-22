@@ -19,10 +19,10 @@ public class Subject {
 	@NotNull
 	private String name;
 	@ManyToMany(mappedBy="subjects")
-	@JsonIgnore
+	
 	private List<Standard> standards= new ArrayList<Standard>();
 	@ManyToMany(mappedBy="subjects")
-	@JsonIgnore
+	
 	private List<Instructor> instructors = new ArrayList<Instructor>();
 
 	public Subject() {

@@ -10,8 +10,6 @@ import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 public class Student {
 	@Id
@@ -20,11 +18,12 @@ public class Student {
 	@NotNull
 	private String name;
 	@Email
+	
 	private String email;
 	private String password;
 
 	@ManyToMany(mappedBy="students")
-	@JsonIgnore
+	
 	private List<Instructor> instructors = new ArrayList<Instructor>();
 	// private int phoneNo;
 	// private int altPhoneNo;
